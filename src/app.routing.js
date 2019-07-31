@@ -1,7 +1,7 @@
 'use strict'
 const postsController =  require('./api/posts.controller');
 import {InMemoryPostsRepository} from './data_access/in-memory-posts.repository';
-const PostsService = require('./services/posts.service');
+import {PostsService} from './services/posts.service';
 
 
 let postsService = new PostsService(new InMemoryPostsRepository());
