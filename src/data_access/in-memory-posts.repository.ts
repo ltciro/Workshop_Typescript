@@ -1,7 +1,12 @@
 'use strict'
-const moment = require('moment');
+import moment  from 'moment';
+import { Repository } from './repository.interface';
+import { Post } from '../models/post.model';
+
 // we only have 3 types of post; Entretainment, International, Politics
-class InMemoryPostsRepository {
+export class InMemoryPostsRepository implements Repository<Post> {
+    private posts: Post[];
+
     constructor() {
         this.posts = [
            {
@@ -38,14 +43,13 @@ class InMemoryPostsRepository {
         ];
     }
 
-    getAll(){
+    getAll(): Post[]{
         return this.posts;
     }
 
-    getById(id) {
+    getById(id: number) {
         // don't do that in production - returning `null`/`undefined` is mostly not a good idea
         return this.posts.filter((post) => post.id == id)[0];
     }
 }
-module.exports = InMemoryPostsRepository;
 
