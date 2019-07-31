@@ -1,15 +1,17 @@
-const express = require('express');
+import { Request, Response, Router} from 'express';
+import { PostsService } from '../services/posts.service';
 
-let router = express.Router();
 
-function postsController(postsService) {
+let router: Router = Router();
 
-    router.get('/', (request, response) => {
+export function postsController(postsService: PostsService): Router {
+
+    router.get('/', (request: Request, response: Response) => {
         var posts = postsService.getAll();
         response.json(posts);
     });
 
-    router.get('/:id', (request, response ) => {
+    router.get('/:id', (request: Request, response: Response) => {
         var id = request.params.id;
         var post = postsService.getById(id);
 
@@ -20,12 +22,10 @@ function postsController(postsService) {
         }
     });
 
-    router.put('/:id', (request, response ) => {
+    router.put('/:id', (request: Request, response: Response) => {
         // HTTP 501 code stands for `Not implemented`
         response.sendStatus(501);
     });
 
     return router;
 }
-
-module.exports = postsController;

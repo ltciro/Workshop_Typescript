@@ -1,5 +1,5 @@
 'use strict'
-const postsController =  require('./api/posts.controller');
+import {postsController} from './api/posts.controller';
 import {InMemoryPostsRepository} from './data_access/in-memory-posts.repository';
 import {PostsService} from './services/posts.service';
 
