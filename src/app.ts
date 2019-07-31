@@ -1,7 +1,7 @@
 'use strict'
-const setRouting =  require('./app.routing');
-const express = require('express');
-const bodyParser = require('body-parser');
+import {setRouting} from './app.routing';
+import express from 'express';
+import bodyParser from 'body-parser';
 
 const config = {
     port: 8000
