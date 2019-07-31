@@ -6,11 +6,11 @@ export class PostsService {
 	constructor(private postsRepository: Repository<Post>) {
 	}
 
-	getAll(){
+	getAll(): Post[]{
 		return this.postsRepository.getAll();
 	}
 
-	getById(id: number ){
+	getById(id: number): Post{
 		return this.postsRepository.getById(id);
 	}
 }
